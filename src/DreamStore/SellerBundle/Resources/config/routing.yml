@@ -1,0 +1,3 @@
+dream_store_seller_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: DreamStoreSellerBundle:Default:index }
