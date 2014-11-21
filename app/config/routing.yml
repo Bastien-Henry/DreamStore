@@ -1,4 +1,9 @@
+dream_store_customer:
+    resource: "@DreamStoreCustomerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 dream_store_seller:
     resource: "@DreamStoreSellerBundle/Resources/config/routing.yml"
     prefix:   /seller
+
 

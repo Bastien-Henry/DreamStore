@@ -1,0 +1,3 @@
+dream_store_customer_homepage:
+    path:     /
+    defaults: { _controller: DreamStoreCustomerBundle:Home:index }
