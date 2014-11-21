@@ -1,0 +1,9 @@
+parameters:
+    dream_store.seller.form.type.stock.class: DreamStore\SellerBundle\Form\StockType
+
+services:
+    dream_store.seller.form.type.stock:
+        class: DreamStore\SellerBundle\Form\StockType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: dreamstore_sellerbundle_stocktype }

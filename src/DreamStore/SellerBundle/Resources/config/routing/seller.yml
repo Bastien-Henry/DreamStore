@@ -1,3 +1,7 @@
 dream_store_seller_homepage:
     path:     /
     defaults: { _controller: DreamStoreSellerBundle:Home:index }
+
+dream_store_seller_add_stock:
+    path:     /stock/{id}
+    defaults: { _controller: DreamStoreSellerBundle:Home:addStock }
