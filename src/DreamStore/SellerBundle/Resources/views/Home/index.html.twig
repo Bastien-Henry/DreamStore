@@ -5,4 +5,6 @@ Hello !
     {{ product.description }}<br>
     {{ product.price }}<br>
     {{ product.stock }}<br>
-{% endfor %}
+    <img style="width: 150px; height: 150px;" src="{{ asset("DS/" ~ product.imageName) }}" alt="{{ product.imageName }}">
+
+{% endfor %}s
