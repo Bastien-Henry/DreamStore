@@ -8,6 +8,9 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('DreamStoreSellerBundle:Home:index.html.twig');
+        $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
+        $data["products"] = $products;
+
+        return $this->render('DreamStoreSellerBundle:Home:index.html.twig', $data);
     }
 }

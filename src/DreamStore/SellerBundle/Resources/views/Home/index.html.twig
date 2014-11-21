@@ -1,1 +1,8 @@
 Hello !
+
+{% for product in products %}
+    {{ product.name }}<br>
+    {{ product.description }}<br>
+    {{ product.price }}<br>
+    {{ product.stock }}<br>
+{% endfor %}
