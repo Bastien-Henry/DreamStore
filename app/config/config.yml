@@ -100,6 +100,10 @@ hwi_oauth:
             client_id:           "176363411895-qb9l6d5fu4agi4si9s0qqfma9mqrlet2.apps.googleusercontent.com"
             client_secret:       "FdaOoEWPTHx8fFe8x3uWYAf7"
             scope:               "email profile"
+        my_github:
+            type:                github
+            client_id:           "12fc73a988809b631a73"
+            client_secret:       "d61a617f5d480fd66e712c2ad2b20a5420621d94"
 services:
     hwi_oauth.user.provider.entity:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

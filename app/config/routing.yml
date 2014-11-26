@@ -32,3 +32,6 @@ facebook_login:
 
 google_login:
     pattern: /login/check-google
+
+github_login:
+    pattern: /login/check-github
