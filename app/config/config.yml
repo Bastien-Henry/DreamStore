@@ -79,11 +79,19 @@ payum:
             DreamStore\PaymentBundle\Entity\PaymentToken:
                 doctrine:
                     driver: orm
-                    
-#hwi_oauth:
-#    resource_owners:
-#        any_name:
-#            type:                google
-#            client_id:           <client_id>
-#            client_secret:       <client_secret>
-#            scope:               "email profile"
+
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secured_area
+    resource_owners:
+        any_name:
+            type: facebook
+            client_id: '685884718194406'
+            client_secret: '8644900f775f30c36fbc9bc9a2738fc3'
+            scope: "email"
+            options:
+                display: popup #dialog is optimized for popup window
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

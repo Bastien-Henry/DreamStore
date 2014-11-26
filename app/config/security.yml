@@ -14,31 +14,17 @@ security:
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
         secured_area:
-            #oauth:
-            #    resource_owners:
-            #        google: "/login/check-google"
-            #    login_path: /login
-            #    use_forward: false
-            #    failure_path: /login
+            oauth:
+                resource_owners:
+                    facebook:      /login_facebook
+                login_path:        /login
+                failure_path:      /login
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
 
- #               oauth_user_provider:
-#                    service: my.oauth_aware.user_provider.service
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: _security_check
-                login_path: _demo_login
-            logout:
-                path:   _demo_logout
-                target: _demo
+            # Turn on anonymous for testings need.
             anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
