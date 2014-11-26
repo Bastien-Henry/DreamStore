@@ -1,3 +1,4 @@
-dream_store_customer_homepage:
-    path:     /
-    defaults: { _controller: DreamStoreCustomerBundle:Home:index }
+dream_store_customer:
+    resource: "@DreamStoreCustomerBundle/Resources/config/routing/customer.yml"
+    prefix: /
+

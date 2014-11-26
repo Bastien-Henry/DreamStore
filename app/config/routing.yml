@@ -1,3 +1,7 @@
+dream_store_payment:
+    resource: "@DreamStorePaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+
 dream_store_customer:
     resource: "@DreamStoreCustomerBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,5 +9,14 @@ dream_store_customer:
 dream_store_seller:
     resource: "@DreamStoreSellerBundle/Resources/config/routing.yml"
     prefix:   /seller
+
+payum_capture:
+    resource: "@PayumBundle/Resources/config/routing/capture.xml"
+
+payum_authorize:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"
+
+payum_notify:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"
 
 
