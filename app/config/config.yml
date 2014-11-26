@@ -81,17 +81,25 @@ payum:
                     driver: orm
 
 hwi_oauth:
+    http_client:
+        verify_peer: false
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: secured_area
     resource_owners:
-        any_name:
+        facebook:
             type: facebook
-            client_id: '685884718194406'
-            client_secret: '8644900f775f30c36fbc9bc9a2738fc3'
-            scope: "email"
-            options:
-                display: popup #dialog is optimized for popup window
-
+            client_id: "685884718194406"
+            client_secret: "8644900f775f30c36fbc9bc9a2738fc3"
+            scope: 'email'
+            infos_url:     "https://graph.facebook.com/me?fields=id,name,email,picture.type(square)"
+            paths:
+                email:          email
+                profilepicture: picture.data.url
+        google:
+            type:                google
+            client_id:           "176363411895-qb9l6d5fu4agi4si9s0qqfma9mqrlet2.apps.googleusercontent.com"
+            client_secret:       "FdaOoEWPTHx8fFe8x3uWYAf7"
+            scope:               "email profile"
 services:
     hwi_oauth.user.provider.entity:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

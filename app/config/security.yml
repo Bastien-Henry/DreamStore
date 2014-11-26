@@ -7,6 +7,8 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        hwi:                               
+            id: hwi_oauth.user.provider   
         in_memory:
             memory:
                 users:
@@ -18,6 +20,7 @@ security:
             oauth:
                 resource_owners:
                     facebook:      /login_facebook
+                    google:        /login/check-google
                 login_path:        /login
                 failure_path:      /login
                 oauth_user_provider:

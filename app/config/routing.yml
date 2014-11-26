@@ -29,3 +29,6 @@ hwi_oauth_login:
 
 facebook_login:
     pattern: /login_facebook
+
+google_login:
+    pattern: /login/check-google
