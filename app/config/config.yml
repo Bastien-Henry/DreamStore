@@ -79,3 +79,11 @@ payum:
             DreamStore\PaymentBundle\Entity\PaymentToken:
                 doctrine:
                     driver: orm
+                    
+#hwi_oauth:
+#    resource_owners:
+#        any_name:
+#            type:                google
+#            client_id:           <client_id>
+#            client_secret:       <client_secret>
+#            scope:               "email profile"

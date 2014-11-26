@@ -37,7 +37,6 @@ class HomeController extends Controller
                 }
                 $em->persist($product);
                 $em->flush();
-                var_dump($product->getStock());
                 return $this->redirect($this->generateUrl('dream_store_seller_homepage'));
             }
         }
