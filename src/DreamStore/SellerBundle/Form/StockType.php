@@ -25,14 +25,7 @@ class StockType extends AbstractType
                 "required"   => true
             ));
     }
-/*
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'DreamStore\SellerBundle\Entity\Product'
-        ));
-    }
-*/
+
     public function getName()
     {
         return 'dreamstore_sellerbundle_stocktype';

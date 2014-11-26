@@ -23,6 +23,15 @@ security:
             security: false
 
         secured_area:
+            #oauth:
+            #    resource_owners:
+            #        google: "/login/check-google"
+            #    login_path: /login
+            #    use_forward: false
+            #    failure_path: /login
+
+ #               oauth_user_provider:
+#                    service: my.oauth_aware.user_provider.service
             pattern:    ^/demo/secured/
             form_login:
                 check_path: _security_check
@@ -30,10 +39,6 @@ security:
             logout:
                 path:   _demo_logout
                 target: _demo
-            #anonymous: ~
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
-
-    access_control:
-        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
