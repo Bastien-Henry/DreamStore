@@ -104,6 +104,10 @@ hwi_oauth:
             type:                github
             client_id:           "12fc73a988809b631a73"
             client_secret:       "d61a617f5d480fd66e712c2ad2b20a5420621d94"
+        twitter:
+            type:                twitter
+            client_id:           "iFVgQ9MTdEvCiowDBsEw5XUIU"
+            client_secret:       "lZyTNxI0sACZ8Ch66fLZeY87sLNlW1lWwmwLUWhTEKiqu77hbC"
 services:
     hwi_oauth.user.provider.entity:
         class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

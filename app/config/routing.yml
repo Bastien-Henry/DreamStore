@@ -35,3 +35,6 @@ google_login:
 
 github_login:
     pattern: /login/check-github
+
+twitter_login:
+    pattern: /login/check-twitter

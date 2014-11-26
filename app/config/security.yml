@@ -22,6 +22,7 @@ security:
                     facebook:      /login_facebook
                     google:        /login/check-google
                     my_github:     /login/check-github
+                    twitter:       /login/check-twitter
                 login_path:        /login
                 failure_path:      /login
                 oauth_user_provider:
