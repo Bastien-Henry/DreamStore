@@ -2,3 +2,6 @@ dream_store_customer:
     resource: "@DreamStoreCustomerBundle/Resources/config/routing/customer.yml"
     prefix: /
 
+dream_store_customer_payment:
+    resource: "@DreamStoreCustomerBundle/Resources/config/routing/payment.yml"
+    prefix: /payment
