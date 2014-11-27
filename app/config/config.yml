@@ -64,22 +64,6 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-payum:
-    contexts:
-        dreamstore_paypal_express:
-            paypal_express_checkout_nvp:
-                username:  'basthenry-facilitator_api1.gmail.com'
-                password:  'ZQU6FW74XXM76VLY'
-                signature: 'AFcWxV21C7fd0v3bYYYRCpSSRl31AzkjVlkpoJ.CmQdWaxNV221FRwQ-'
-                sandbox: true
-    storages:
-        DreamStore\PaymentBundle\Entity\PaymentDetails: { doctrine: orm }
-    security:
-        token_storage:
-            DreamStore\PaymentBundle\Entity\PaymentToken:
-                doctrine:
-                    driver: orm
-
 hwi_oauth:
     http_client:
         verify_peer: false
