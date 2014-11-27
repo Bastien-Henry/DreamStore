@@ -1,7 +1,0 @@
-dream_store_payment_homepage:
-    path:     /
-    defaults: { _controller: DreamStorePaymentBundle:Payment:prepare }
-
-dream_store_payment_done:
-    path:    /done
-    defaults: { _controller: DreamStorePaymentBundle:Payment:captureDone }
