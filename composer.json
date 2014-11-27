@@ -20,9 +20,6 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "payum/payum-bundle": "*@stable",
-        "payum/offline": "*@stable",
-        "payum/paypal-express-checkout-nvp": "*@stable"
     },
     "scripts": {
         "post-install-cmd": [
