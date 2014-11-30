@@ -11,6 +11,9 @@ class HomeController extends Controller
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
         $data["products"] = $products;
 
+        //Name of the user
+        //$user = $this->container->get('security.context')->getToken()->getUser();
+
         return $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
     }
 
