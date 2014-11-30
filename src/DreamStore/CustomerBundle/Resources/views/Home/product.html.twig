@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
 <a href="{{ path('dream_store_customer_show', {'id' : product.id}) }}">
-	<div class="product">
+	<div class="product-show">
 	    <span class="product-name">{{ product.name }}</span><br>
 	    <span class="product-image"><img style="width: 150px; height: 150px;" src="{{ asset("DS/" ~ product.imageName) }}" alt="{{ product.imageName }}"></span><br>
 	    <span class="product-description">Description : {{ product.description }}</span><br>
@@ -10,12 +10,12 @@
     </div>
 </a>
 
-<form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+<form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" class="form-product">
     {% for child in form.children %}
         {{ form_row(child) }}
     {% endfor %}
     <br>
-    <input class="btn btn-success" type="submit" value="Envoyer"/>
+    <input class="btn btn-info" type="submit" value="Envoyer"/>
 </form>
 
 {% endblock %}

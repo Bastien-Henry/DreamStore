@@ -18,3 +18,18 @@
 {
 	margin: 10px;
 }
+
+.product-show
+{
+	border:1px solid #000;
+	width: 500px;
+	margin: 20px;
+	text-align: center;
+	font-size: 20px;
+	margin-left: 300px;
+}
+
+.form-product
+{
+	margin-left: 300px;
+}
