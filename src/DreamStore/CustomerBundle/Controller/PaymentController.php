@@ -3,6 +3,7 @@
 namespace DreamStore\CustomerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use DreamStore\CustomerBundle\Entity\Historical;
 
 class PaymentController extends Controller
 {
@@ -19,6 +20,8 @@ class PaymentController extends Controller
     {
         $table = $this->getRequest()->request->get('dreamstore_customerbundle_paymenttype');
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
+        $this->editStockAction($product, $table['quantite']);
+        $this->historicalAction($product, $table['quantite']);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
         curl_setopt($ch, CURLOPT_POST,1);
@@ -66,7 +69,35 @@ class PaymentController extends Controller
         return $this->redirect($link);
     }
 
-        public function getPaypalRedirectUrl($token)
+    private function editStockAction($product, $quantity)
+    {
+        $stock = $product->getStock();
+        $product->setStock($stock-$quantity);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
+        return;
+    }
+
+    private function historicalAction($product, $quantity)
+    {
+        $usr = $this->get('security.context')->getToken()->getUser();
+        $userName = $usr->getUsername();
+
+        $historic = new Historical;
+        $historic->setProduct($product);
+        $historic->setQuantity($quantity);
+        $historic->setUser($userName);
+        $historic->setPrice($product->getPrice());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($historic);
+        $em->flush();
+        return;
+    }
+
+    public function getPaypalRedirectUrl($token)
     {
         return "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=".$token;
     }
