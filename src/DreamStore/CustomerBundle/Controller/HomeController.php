@@ -11,7 +11,11 @@ class HomeController extends Controller
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
 
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();
-        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findByUser($username);
+
+        if (isset($username))
+            $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findByUser($username);
+        else
+            $historicals = [];
 
         $data["products"] = $products;
         $data["historicals"] = $historicals;
