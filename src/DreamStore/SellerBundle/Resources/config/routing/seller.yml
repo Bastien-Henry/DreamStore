@@ -5,3 +5,7 @@ dream_store_seller_homepage:
 dream_store_seller_add_stock:
     path:     /stock/{id}
     defaults: { _controller: DreamStoreSellerBundle:Home:addStock }
+
+dream_store_seller_edit_price:
+    path:     /edit/{id}
+    defaults: { _controller: DreamStoreSellerBundle:Home:editPrice }

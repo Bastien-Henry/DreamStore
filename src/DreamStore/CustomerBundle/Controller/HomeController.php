@@ -9,7 +9,12 @@ class HomeController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
+
+        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findByUser($username);
+
         $data["products"] = $products;
+        $data["historicals"] = $historicals;
 
         return $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
     }

@@ -1,5 +1,7 @@
-Hello !
-<table>
+{% extends '::base.html.twig' %}
+{%block body%}
+Produits !
+<table class="table table-hover">
     <thead>
     <tr>
         <td><strong>Image</strong></td>
@@ -18,8 +20,35 @@ Hello !
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.stock }}</td>
-                <td><a href={{ path('dream_store_seller_add_stock', {'id' : product.id}) }}>Gestion de stock</a></td>
+                <td>
+                    <a href={{ path('dream_store_seller_add_stock', {'id' : product.id}) }}>Gestion de stock</a><br>
+                    <a href={{ path('dream_store_seller_edit_price', {'id' : product.id}) }}>Modifier le prix</a>
+                </td>
             </tr>
         {% endfor %}
     <tbody>
 </table>
+Historique !
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><strong>Utilisateur</strong></td>
+        <td><strong>Produit</strong></td>
+        <td><strong>quantitée</strong></td>
+        <td><strong>prix</strong></td>
+        <td><strong>date</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for historical in historicals %}
+        <tr>
+            <td>{{ historical.user }}</td>
+            <td>{{ historical.product.name }}</td>
+            <td>{{ historical.quantity }}</td>
+            <td>{{ historical.price }}</td>
+            <td>{{ historical.date.date }}</td>
+        </tr>
+    {% endfor %}
+    <tbody>
+</table>
+{% endblock %}

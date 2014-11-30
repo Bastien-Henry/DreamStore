@@ -1,0 +1,163 @@
+<?php
+
+namespace DreamStore\CustomerBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Historical
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Historical
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user", type="string", length=255)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="DreamStore\SellerBundle\Entity\Product", cascade={"persist"})
+     */
+    private $product;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="quantity", type="string", length=255)
+     */
+    private $quantity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="string", length=255)
+     */
+    private $price;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    public function __construct()
+    {
+        $this->setDate(new \DateTime());
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param string $user
+     * @return Historical
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param string $quantity
+     * @return Historical
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return string 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Historical
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \DreamStore\SellerBundle\Entity\Product $product
+     * @return Historical
+     */
+    public function setProduct(\DreamStore\SellerBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+    
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \DreamStore\SellerBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}
