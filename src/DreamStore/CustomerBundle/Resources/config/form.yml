@@ -1,0 +1,9 @@
+parameters:
+    dream_store.customer.form.type.payment.class: DreamStore\CustomerBundle\Form\PaymentType
+
+services:
+    dream_store.customer.form.type.payment:
+        class: DreamStore\CustomerBundle\Form\PaymentType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: dreamstore_customerbundle_paymenttype }
