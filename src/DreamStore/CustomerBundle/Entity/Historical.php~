@@ -29,7 +29,7 @@ class Historical
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="DreamStore\SellerBundle\Entity\Product", mappedBy="historical")
+     * @ORM\ManyToOne(targetEntity="DreamStore\SellerBundle\Entity\Product", inversedBy="historicals")
      */
     private $product;
 

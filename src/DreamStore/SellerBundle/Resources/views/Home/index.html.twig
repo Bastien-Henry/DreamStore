@@ -42,6 +42,7 @@ Historique !
     <tbody>
     {% for historical in historicals %}
         <tr>
+            {{ dump(historical) }}
             <td>{{ historical.user }}</td>
             <td>{{ historical.product.name }}</td>
             <td>{{ historical.quantity }}</td>

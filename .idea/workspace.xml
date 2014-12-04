@@ -5,8 +5,12 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.3.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.4.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php" afterPath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" afterPath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamStore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,44 +32,36 @@
     <favorites_list name="DreamStore" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="828">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaymentController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="40" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.6889849" vertical-offset="928" max-vertical-offset="1962">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Historical.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="0" selection-start="3255" selection-end="3255" vertical-scroll-proportion="-13.824561" vertical-offset="2740" max-vertical-offset="3636">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="6" selection-start="863" selection-end="863" vertical-scroll-proportion="-20.296297" vertical-offset="406" max-vertical-offset="3546">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="HomeControllerTest.php" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="22" column="0" selection-start="574" selection-end="574" vertical-scroll-proportion="0.43373495" vertical-offset="0" max-vertical-offset="913">
+                  <folding>
+                    <element signature="e#60#112#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="83" column="0" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.8817087" vertical-offset="689" max-vertical-offset="1602">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -90,22 +86,22 @@
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/stock.html.twig" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Form/StockType.php" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php" />
         <option value="$PROJECT_DIR$/web/config.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/config/routing/seller.yml" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/price.html.twig" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Form/PriceType.php" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/config/form.yml" />
-        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" />
         <option value="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/index.html.twig" />
         <option value="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" />
         <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php" />
         <option value="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php" />
         <option value="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php" />
+        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php" />
       </list>
     </option>
   </component>
@@ -219,7 +215,123 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,17 +451,17 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21347709" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12506738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -425,11 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0" vertical-offset="505" max-vertical-offset="1836" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="0" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="594">
@@ -467,11 +574,6 @@
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="756" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="13" selection-start="1592" selection-end="1592" vertical-scroll-proportion="0.0" vertical-offset="1044" max-vertical-offset="1836" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php">
@@ -569,16 +671,6 @@
         <state line="37" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.23326133" vertical-offset="0" max-vertical-offset="926" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.6977964" vertical-offset="505" max-vertical-offset="1836" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.60440713" vertical-offset="0" max-vertical-offset="953" />
@@ -616,50 +708,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="12" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="720">
+        <state line="31" column="11" selection-start="1206" selection-end="1206" vertical-scroll-proportion="-20.666666" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="9" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1476">
+        <state line="67" column="16" selection-start="1805" selection-end="1805" vertical-scroll-proportion="1.2654774" vertical-offset="0" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="12" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.41684666" vertical-offset="154" max-vertical-offset="1080">
+        <state line="52" column="11" selection-start="1787" selection-end="1787" vertical-scroll-proportion="0.865991" vertical-offset="167" max-vertical-offset="1098">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="0" selection-start="3255" selection-end="3255" vertical-scroll-proportion="-13.824561" vertical-offset="2740" max-vertical-offset="3636">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="6" selection-start="863" selection-end="863" vertical-scroll-proportion="-20.296297" vertical-offset="406" max-vertical-offset="3546">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="828">
+        <state line="186" column="0" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.91566265" vertical-offset="2512" max-vertical-offset="3456">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="40" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.6889849" vertical-offset="928" max-vertical-offset="1962">
+        <state line="17" column="0" selection-start="514" selection-end="514" vertical-scroll-proportion="0.3154436" vertical-offset="0" max-vertical-offset="1962">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Entity/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="0" selection-start="3931" selection-end="3931" vertical-scroll-proportion="3.3406353" vertical-offset="1054" max-vertical-offset="4212">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.78860897" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="0" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.8817087" vertical-offset="689" max-vertical-offset="1602">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DreamStore/SellerBundle/Tests/Controller/HomeControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="574" selection-end="574" vertical-scroll-proportion="0.43373495" vertical-offset="0" max-vertical-offset="913">
+          <folding>
+            <element signature="e#60#112#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -185,44 +185,4 @@ class Product
     {
         return $this->stock;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->historicals = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add historicals
-     *
-     * @param \DreamStore\CustomerBundle\Entity\Historical $historicals
-     * @return Product
-     */
-    public function addHistorical(\DreamStore\CustomerBundle\Entity\Historical $historicals)
-    {
-        $this->historicals[] = $historicals;
-    
-        return $this;
-    }
-
-    /**
-     * Remove historicals
-     *
-     * @param \DreamStore\CustomerBundle\Entity\Historical $historicals
-     */
-    public function removeHistorical(\DreamStore\CustomerBundle\Entity\Historical $historicals)
-    {
-        $this->historicals->removeElement($historicals);
-    }
-
-    /**
-     * Get historicals
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getHistoricals()
-    {
-        return $this->historicals;
-    }
 }
