@@ -29,7 +29,7 @@ class Historical
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="DreamStore\SellerBundle\Entity\Product", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="DreamStore\SellerBundle\Entity\Product", mappedBy="historical")
      */
     private $product;
 
@@ -139,29 +139,6 @@ class Historical
     }
 
     /**
-     * Set product
-     *
-     * @param \DreamStore\SellerBundle\Entity\Product $product
-     * @return Historical
-     */
-    public function setProduct(\DreamStore\SellerBundle\Entity\Product $product = null)
-    {
-        $this->product = $product;
-    
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return \DreamStore\SellerBundle\Entity\Product 
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
-
-    /**
      * Set price
      *
      * @param string $price
@@ -182,5 +159,38 @@ class Historical
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \DreamStore\SellerBundle\Entity\Product $product
+     * @return Historical
+     */
+    public function addProduct(\DreamStore\SellerBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+    
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \DreamStore\SellerBundle\Entity\Product $product
+     */
+    public function removeProduct(\DreamStore\SellerBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

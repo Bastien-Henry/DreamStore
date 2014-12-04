@@ -56,6 +56,13 @@ class Product
      */
     private $stock;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="historical", type="string")
+     */
+    private $historical;
+
 
     /**
      * Get id
