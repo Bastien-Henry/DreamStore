@@ -9,12 +9,12 @@ class HomeController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
-
+/*
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();
 
         if (isset($username))
             $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findByUser($username);
-        else
+        else*/
             $historicals = [];
 
         $data["products"] = $products;
