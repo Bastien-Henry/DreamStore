@@ -184,7 +184,7 @@ class PaymentController extends Controller
         $userName = $usr->getUsername();
 
         $historic = new Historical;
-        $historic->addProduct($product);
+        $historic->setProduct($product);
         $historic->setQuantity($quantity);
         $historic->setUser($userName);
         $historic->setToken($token);

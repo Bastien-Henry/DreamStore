@@ -26,10 +26,7 @@ class HomeController extends Controller
             $form->bind($request);
             if ($form->isValid())
             {
-                $em = $this->getDoctrine()->getManager();
-                $table = $this->getRequest()->request->get('dreamstore_sellerbundle_pricetype');
-                $em->persist($product);
-                $em->flush();
+                $this->editPrice($product);
                 return $this->redirect($this->generateUrl('dream_store_seller_homepage'));
             }
         }
@@ -40,9 +37,16 @@ class HomeController extends Controller
         return $this->render('DreamStoreSellerBundle:Home:price.html.twig', $data);
     }
 
+    public function editPrice($product)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $table = $this->getRequest()->request->get('dreamstore_sellerbundle_pricetype');
+        $em->persist($product);
+        $em->flush();
+    }
+
     public function addStockAction($id)
     {
-        $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
         $request = $this->get("request");
         $form = $this->createForm("dreamstore_sellerbundle_stocktype");
         if ($request->getMethod() == 'POST')
@@ -50,27 +54,30 @@ class HomeController extends Controller
             $form->bind($request);
             if ($form->isValid())
             {
-                $em = $this->getDoctrine()->getManager();
                 $table = $this->getRequest()->request->get('dreamstore_sellerbundle_stocktype');
-                $ProductStock = $product->getStock();
-                if($table['operation'] == 'add')
-                {
-                    $product->setStock($ProductStock+$table['stock']);
-                }
-                else
-                {
-                    $product->setStock($ProductStock-$table['stock']);
-                }
-                $em->persist($product);
-                $em->flush();
+                $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
+                $productStock = $product->getStock();
+                $this->feedStock($product, $productStock, $table);
                 return $this->redirect($this->generateUrl('dream_store_seller_homepage'));
             }
         }
-
         $data["id"] = $id;
         $data["form"] = $form->createView();
         $data["route"] = "dream_store_seller_add_stock";
 
         return $this->render('DreamStoreSellerBundle:Home:stock.html.twig', $data);
+    }
+
+    public function addStock($product, $productStock, $table)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        if($table['operation'] == 'add')
+            $product->setStock($productStock+$table['stock']);
+        else
+            $product->setStock($productStock-$table['stock']);
+
+        $em->persist($product);
+        $em->flush();
     }
 }

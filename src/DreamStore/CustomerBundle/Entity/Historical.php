@@ -29,7 +29,7 @@ class Historical
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="DreamStore\SellerBundle\Entity\Product", mappedBy="historical")
+     * @ORM\ManyToOne(targetEntity="DreamStore\SellerBundle\Entity\Product", inversedBy="historicals")
      */
     private $product;
 
@@ -176,32 +176,22 @@ class Historical
     }
 
     /**
-     * Add product
+     * Set product
      *
      * @param \DreamStore\SellerBundle\Entity\Product $product
      * @return Historical
      */
-    public function addProduct(\DreamStore\SellerBundle\Entity\Product $product)
+    public function setProduct(\DreamStore\SellerBundle\Entity\Product $product = null)
     {
-        $this->product[] = $product;
+        $this->product = $product;
     
         return $this;
     }
 
     /**
-     * Remove product
-     *
-     * @param \DreamStore\SellerBundle\Entity\Product $product
-     */
-    public function removeProduct(\DreamStore\SellerBundle\Entity\Product $product)
-    {
-        $this->product->removeElement($product);
-    }
-
-    /**
      * Get product
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \DreamStore\SellerBundle\Entity\Product 
      */
     public function getProduct()
     {
