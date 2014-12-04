@@ -1,3 +1,8 @@
+dream_store_customer_payment_return:
+    path:     /return
+    defaults: { _controller: DreamStoreCustomerBundle:Payment:return }
+
 dream_store_customer_payment_index:
     path:     /{id}
     defaults: { _controller: DreamStoreCustomerBundle:Payment:index }
+

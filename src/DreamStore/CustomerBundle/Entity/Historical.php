@@ -47,6 +47,20 @@ class Historical
      */
     private $price;
 
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=255)
+     */
+    private $token;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
     /**
      * @var \DateTime
      *
@@ -192,5 +206,51 @@ class Historical
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return Historical
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+    
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Historical
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

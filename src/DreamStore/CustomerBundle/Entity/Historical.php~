@@ -47,6 +47,20 @@ class Historical
      */
     private $price;
 
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", length=255)
+     */
+    private $token;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
     /**
      * @var \DateTime
      *
@@ -159,5 +173,38 @@ class Historical
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \DreamStore\SellerBundle\Entity\Product $product
+     * @return Historical
+     */
+    public function addProduct(\DreamStore\SellerBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+    
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \DreamStore\SellerBundle\Entity\Product $product
+     */
+    public function removeProduct(\DreamStore\SellerBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

@@ -20,8 +20,8 @@ class PaymentController extends Controller
     {
         $table = $this->getRequest()->request->get('dreamstore_customerbundle_paymenttype');
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
-        $this->editStockAction($product, $table['quantite']);
-        $this->historicalAction($product, $table['quantite']);
+        // $this->editStockAction($product, $table['quantite']);
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
         curl_setopt($ch, CURLOPT_POST,1);
@@ -33,8 +33,8 @@ class PaymentController extends Controller
                 "SIGNATURE" => $this->signature,
                 "VERSION" => 78,
                 "AMT" => $table['quantite'],
-                "returnUrl" => "http://localhost/DreamStore/web/app_dev.php",
-                "cancelUrl" => "http://localhost/DreamStore/web/app_dev.php"
+                "returnUrl" => "http://localhost/DreamStore/web/app_dev.php/payment/return",
+                "cancelUrl" => "http://localhost/DreamStore/web/app_dev.php/show/".$id
             );
 
         $post_var['L_PAYMENTREQUEST_0_NAME0']=$product->getName();
@@ -49,6 +49,8 @@ class PaymentController extends Controller
         $post_var['PAYMENTREQUEST_0_AMT']= 4.00 + $post_var['PAYMENTREQUEST_0_TAXAMT'] + ($product->getPrice() * $table['quantite']);
         $post_var['PAYMENTREQUEST_0_CURRENCYCODE']="EUR";
         $post_var['ALLOWNOTE']=1;
+
+        var_dump($post_var['PAYMENTREQUEST_0_AMT']);
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_var));
 
@@ -65,9 +67,105 @@ class PaymentController extends Controller
 
         $response = array();
         parse_str($server_output, $response);
+        $this->historicalAction($product, $table['quantite'], $response['TOKEN'], 'en cours');
         $link = $this->getPaypalRedirectUrl($response['TOKEN']);
         return $this->redirect($link);
     }
+
+    public function returnAction()
+    {
+        $getPaymentResult = $this->getPayment($_GET['token'], $_GET['PayerID']);
+
+        if ($getPaymentResult['PAYERSTATUS'] == "verified") 
+        {
+            $resultPayment = $this->capturePayment($_GET['PayerID'], $_GET['token']);
+        }
+        else
+        {
+            echo "Erreur lors de la transaction de Paypal";
+        }
+    }
+
+    private function getPayment($tokenID, $payerID)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_POST,1);
+
+        $post_var = array(
+                "METHOD" => "GetExpressCheckoutDetails",
+                "USER" => $this->email,
+                "PWD" => $this->password,
+                "SIGNATURE" => $this->signature,
+                "VERSION" => 78,
+                "TOKEN" => $tokenID,
+                "PAYERID" => $payerID
+            );
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_var));
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+
+        if (empty($server_output)) {
+            throw new \Exception(curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        $response = array();
+        parse_str($server_output, $response);
+        var_dump($response['PAYMENTREQUEST_0_AMT']);
+        return $response;
+    }
+
+    function capturePayment($payerID, $tokenID)
+    {
+        $payment = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneByToken($tokenID);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_POST,1);
+
+        $post_var = array(
+                "METHOD" => "DoExpressCheckoutPayment",
+                "USER" => $this->email,
+                "PWD" => $this->password,
+                "SIGNATURE" => $this->signature,
+                "VERSION" => 78,
+                "TOKEN" => $payment->getToken(),
+                "PAYERID" => $payerID,
+                "PAYMENTREQUEST_0_PAYMENTACTION" => "SALE",
+                "PAYMENTREQUEST_0_CURRENCYCODE" => "EUR"
+            );
+
+        // $post_var['PAYMENTREQUEST_0_TAXAMT'] = $payment->getPrice() * 0.2 * $payment->getQuantity();
+        $tax = $payment->getPrice() * 0.2 * $payment->getQuantity();
+
+        $post_var['PAYMENTREQUEST_0_AMT'] = 4.00 + $tax + ($payment->getPrice() * $payment->getQuantity());
+
+        var_dump($post_var['PAYMENTREQUEST_0_AMT']);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_var));
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+
+        if (empty($server_output)) {
+            throw new \Exception(curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        var_dump($post_var);
+        $response = array();
+        parse_str($server_output, $response);
+        return $response;
+  }
 
     private function editStockAction($product, $quantity)
     {
@@ -80,7 +178,7 @@ class PaymentController extends Controller
         return;
     }
 
-    private function historicalAction($product, $quantity)
+    private function historicalAction($product, $quantity, $token, $status)
     {
         $usr = $this->get('security.context')->getToken()->getUser();
         $userName = $usr->getUsername();
@@ -89,6 +187,8 @@ class PaymentController extends Controller
         $historic->addProduct($product);
         $historic->setQuantity($quantity);
         $historic->setUser($userName);
+        $historic->setToken($token);
+        $historic->setStatus($status);
         $historic->setPrice($product->getPrice());
 
         $em = $this->getDoctrine()->getManager();
