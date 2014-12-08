@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{%block body%}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><strong>Produit</strong></td>
+        <td><strong>quantitée</strong></td>
+        <td><strong>prix</strong></td>
+        <td><strong>date</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for historical in historicals %}
+        <tr>
+            <td>{{ historical.product.name }}</td>
+            <td>{{ historical.quantity }}</td>
+            <td>{{ historical.price }}</td>
+            <td>{{ historical.date.date }}</td>
+        </tr>
+    {% endfor %}
+    <tbody>
+</table>
+{%endblock%}

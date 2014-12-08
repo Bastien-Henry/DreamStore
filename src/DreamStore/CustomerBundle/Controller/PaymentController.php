@@ -20,7 +20,11 @@ class PaymentController extends Controller
     {
         $table = $this->getRequest()->request->get('dreamstore_customerbundle_paymenttype');
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
-        // $this->editStockAction($product, $table['quantite']);
+        $stock = $product->getStock();
+        if($stock-$table['quantite'] < 0)
+        {
+            return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
+        }
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);

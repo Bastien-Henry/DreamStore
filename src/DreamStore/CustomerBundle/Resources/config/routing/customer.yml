@@ -5,3 +5,7 @@ dream_store_customer_homepage:
 dream_store_customer_show:
     path:     /show/{id}
     defaults: { _controller: DreamStoreCustomerBundle:Home:show }
+
+dream_store_customer_historical:
+    path:     /historical
+    defaults: { _controller: DreamStoreCustomerBundle:Home:historical }
