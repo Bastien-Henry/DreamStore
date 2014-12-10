@@ -21,7 +21,7 @@ class PaymentController extends Controller
         $table = $this->getRequest()->request->get('dreamstore_customerbundle_paymenttype');
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
         $stock = $product->getStock();
-        if($stock-$table['quantite'] < 0)
+        if($stock - $table['quantite'] < 0)
         {
             return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
         }
@@ -54,7 +54,6 @@ class PaymentController extends Controller
         $post_var['PAYMENTREQUEST_0_CURRENCYCODE']="EUR";
         $post_var['ALLOWNOTE']=1;
 
-        var_dump($post_var['PAYMENTREQUEST_0_AMT']);
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_var));
 
@@ -83,6 +82,25 @@ class PaymentController extends Controller
         if ($getPaymentResult['PAYERSTATUS'] == "verified") 
         {
             $resultPayment = $this->capturePayment($_GET['PayerID'], $_GET['token']);
+            if ($resultPayment['PAYMENTINFO_0_ACK'] == "Success") 
+            {
+                $historic = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneByToken($_GET['token']);
+                $historic->setStatus('payé');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($historic);
+                $em->flush();
+                $product = $historic->getProduct();
+                $quantity = $historic->getQuantity();
+
+                $data['result'] = true;
+                $this->editStockAction($product, $quantity);
+                return $this->render('DreamStoreCustomerBundle:Home:returnPayment.html.twig', $data);
+            }
+            else
+            {
+                $data['result'] = false;
+                return $this->render('DreamStoreCustomerBundle:Home:returnPayment.html.twig', $data);
+            }
         }
         else
         {
@@ -121,7 +139,6 @@ class PaymentController extends Controller
 
         $response = array();
         parse_str($server_output, $response);
-        var_dump($response['PAYMENTREQUEST_0_AMT']);
         return $response;
     }
 
@@ -150,8 +167,6 @@ class PaymentController extends Controller
 
         $post_var['PAYMENTREQUEST_0_AMT'] = 4.00 + $tax + ($payment->getPrice() * $payment->getQuantity());
 
-        var_dump($post_var['PAYMENTREQUEST_0_AMT']);
-
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_var));
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -164,8 +179,6 @@ class PaymentController extends Controller
         }
 
         curl_close($ch);
-
-        var_dump($post_var);
         $response = array();
         parse_str($server_output, $response);
         return $response;
@@ -174,7 +187,7 @@ class PaymentController extends Controller
     private function editStockAction($product, $quantity)
     {
         $stock = $product->getStock();
-        $product->setStock($stock-$quantity);
+        $product->setStock($stock - $quantity);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($product);

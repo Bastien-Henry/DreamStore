@@ -1,5 +1,12 @@
 {% extends '::base.html.twig' %}
 {% block body %}
-Hello world
+
+	{% if result == false %}
+    	<div id='resultPayment' class='alert alert-error'>Il y a eu un problème lors du paiement, veuillez réessayer.</div>
+	{% else %}
+	    <div id='resultPayment' class='alert alert-success'>Le paiement a été réussi !</div>
+	{% endif %}
+
+	<a href="{{path('dream_store_customer_homepage')}}" class="btn btn-info col-md-offset-5" id="linkIndex">Retourner à la home</a>
 
 {% endblock %}
