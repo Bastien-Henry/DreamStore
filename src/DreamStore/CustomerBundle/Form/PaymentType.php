@@ -13,7 +13,7 @@ class PaymentType extends AbstractType
     {
         $builder
             ->add('quantite', 'integer', array(
-                "label"     => "Quantité",
+                "label"     => "Quantité :",
                 "required"   => true
             ))
             ->add('place', 'choice', array(

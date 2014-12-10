@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a839771-a4a4-4b6a-9f8a-d96584b082ac" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/cart.html.twig" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.3.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.4.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Entity/Historical.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Form/PaymentType.php" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Form/PaymentType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/config/routing/customer.yml" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/config/routing/customer.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" afterPath="$PROJECT_DIR$/src/DreamStore/SellerBundle/Resources/views/Home/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/returnPayment.html.twig" afterPath="$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/returnPayment.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="DreamStore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,13 +40,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PaymentController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="69" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.6308872" vertical-offset="0" max-vertical-offset="4194">
+            <state line="35" column="36" selection-start="1448" selection-end="1448" vertical-scroll-proportion="-23.333334" vertical-offset="0" max-vertical-offset="4446">
               <folding>
                 <element signature="e#56#113#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="53" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.58315337" vertical-offset="0" max-vertical-offset="1044">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +120,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1855" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
     <option name="height" value="1056" />
@@ -499,7 +504,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1855" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -803,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="82" selection-start="1894" selection-end="1894" vertical-scroll-proportion="-23.962963" vertical-offset="19" max-vertical-offset="1008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Resources/views/Home/cart.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="42" selection-start="303" selection-end="303" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="540">
@@ -826,10 +824,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DreamStore/CustomerBundle/Controller/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="69" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.6308872" vertical-offset="0" max-vertical-offset="4194">
+        <state line="35" column="36" selection-start="1448" selection-end="1448" vertical-scroll-proportion="-23.333334" vertical-offset="0" max-vertical-offset="4446">
           <folding>
             <element signature="e#56#113#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="53" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.58315337" vertical-offset="0" max-vertical-offset="1044">
+          <folding />
         </state>
       </provider>
     </entry>
