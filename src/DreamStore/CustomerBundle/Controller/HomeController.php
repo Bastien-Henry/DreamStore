@@ -29,6 +29,15 @@ class HomeController extends Controller
         return $this->render('DreamStoreCustomerBundle:Home:historical.html.twig', $data);
     }
 
+    public function cartAction()
+    {
+        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $carts = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'panier'));
+        $data["carts"] = $carts;
+
+        return $this->render('DreamStoreCustomerBundle:Home:cart.html.twig', $data);
+    }
+
     public function showAction($id)
     {
         $form = $this->createForm("dreamstore_customerbundle_paymenttype");

@@ -15,6 +15,15 @@ class PaymentType extends AbstractType
             ->add('quantite', 'integer', array(
                 "label"     => "Quantité :",
                 "required"   => true
+            ))
+            ->add('place', 'choice', array(
+                "choices" => array(
+                    "cart" => "A jouter au panier",
+                    "buy" => "Achat immediat"
+                ),
+                "multiple" => false,
+                "label"     => "place",
+                "required"   => true
             ));
     }
 

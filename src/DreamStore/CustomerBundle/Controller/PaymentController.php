@@ -21,10 +21,30 @@ class PaymentController extends Controller
         $table = $this->getRequest()->request->get('dreamstore_customerbundle_paymenttype');
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
         $stock = $product->getStock();
-        if($stock - $table['quantite'] < 0)
+
+
+        if($table['place'] == "cart")
         {
+            $userName = $this->get('security.context')->getToken()->getUser()->getUsername();
+            $cart = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneBy(array("user" => $userName, "status" => "panier", "product" => $product));
+            if($cart)
+            {
+                $totalQuantity = $cart->getQuantity()+$table['quantite'];
+                $cart->setQuantity($totalQuantity);
+                $cart->setPrice($totalQuantity*$product->getPrice());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($cart);
+                $em->flush();
+            }
+            else
+            {
+                $this->historicalAction($product, $table['quantite'], "", "panier");
+            }
             return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
         }
+
+        if($stock-$table['quantite'] < 0)
+            return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
@@ -206,7 +226,7 @@ class PaymentController extends Controller
         $historic->setUser($userName);
         $historic->setToken($token);
         $historic->setStatus($status);
-        $historic->setPrice($product->getPrice());
+        $historic->setPrice($quantity*$product->getPrice());
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($historic);

@@ -47,14 +47,14 @@ class Historical
      */
     private $price;
 
-        /**
+     /**
      * @var string
      *
      * @ORM\Column(name="token", type="string", length=255)
      */
     private $token;
 
-        /**
+    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)

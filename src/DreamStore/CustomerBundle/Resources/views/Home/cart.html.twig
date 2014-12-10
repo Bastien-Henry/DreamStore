@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{%block body%}
+Panier !
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td><strong>Produit</strong></td>
+            <td><strong>Quantitée</strong></td>
+            <td><strong>Prix</strong></td>
+            <td><strong>Date</strong></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cart in carts %}
+            <tr>
+                <td>{{ cart.product.name }}</td>
+                <td>{{ cart.quantity }}</td>
+                <td>{{ cart.price }}</td>
+                <td>{{ cart.date.date }}</td>
+            </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+{%endblock%}
