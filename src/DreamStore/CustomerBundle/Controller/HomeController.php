@@ -14,6 +14,12 @@ class HomeController extends Controller
         return $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
     }
 
+    public function deconnectionAction()
+    {
+        $this->get('security.context')->setToken(null);
+        return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
+    }
+
     public function historicalAction()
     {
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();

@@ -9,3 +9,7 @@ dream_store_customer_show:
 dream_store_customer_historical:
     path:     /historical
     defaults: { _controller: DreamStoreCustomerBundle:Home:historical }
+
+dream_store_customer_deconnection:
+    path:     /deconnection
+    defaults: { _controller: DreamStoreCustomerBundle:Home:deconnection }
