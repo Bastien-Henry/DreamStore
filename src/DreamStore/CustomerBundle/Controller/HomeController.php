@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function historicalAction()
     {
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();
-        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findByUser($username);
+        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'paye'));
         $data["historicals"] = $historicals;
 
         return $this->render('DreamStoreCustomerBundle:Home:historical.html.twig', $data);

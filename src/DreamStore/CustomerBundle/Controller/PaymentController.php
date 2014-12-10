@@ -85,7 +85,7 @@ class PaymentController extends Controller
             if ($resultPayment['PAYMENTINFO_0_ACK'] == "Success") 
             {
                 $historic = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneByToken($_GET['token']);
-                $historic->setStatus('payé');
+                $historic->setStatus('paye');
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($historic);
                 $em->flush();
