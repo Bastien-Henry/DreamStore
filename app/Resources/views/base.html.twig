@@ -35,6 +35,7 @@
         <li><a href="{{path('dream_store_customer_homepage')}}">Home</a></li>
           {% if app.user.username is defined %}
               <li><a href="{{ path('dream_store_customer_historical')}}">Historique</a></li>
+              <li><a href="{{ path('dream_store_customer_cart')}}">Panier</a></li>
               <li><a href="{{ path('dream_store_customer_deconnection')}}">Deconnexion</a></li>
           {% else %}
               <li><a href="{{ path('hwi_oauth_connect')}}">Connexion</a></li>
