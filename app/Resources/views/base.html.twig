@@ -33,7 +33,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{{path('dream_store_customer_homepage')}}">Home</a></li>
-          {% if app.user.username %}
+          {% if app.user.username is defined %}
               <li><a href="{{ path('dream_store_customer_historical')}}">Historique</a></li>
           {% else %}
               <li><a href="{{ path('hwi_oauth_connect')}}">Connexion</a></li>
