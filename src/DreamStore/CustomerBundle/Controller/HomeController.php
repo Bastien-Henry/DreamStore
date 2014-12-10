@@ -34,8 +34,21 @@ class HomeController extends Controller
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();
         $carts = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'panier'));
         $data["carts"] = $carts;
+        $data["finalPrice"] = $carts;
 
         return $this->render('DreamStoreCustomerBundle:Home:cart.html.twig', $data);
+    }
+
+    public function cartDeleteAction($id)
+    {
+        $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
+        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $cart = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneBy(array('user' => $username, 'status' => 'panier', 'product' => $product));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($cart);
+        $em->flush();
+        return $this->redirect($this->generateUrl('dream_store_customer_cart'));
     }
 
     public function showAction($id)
