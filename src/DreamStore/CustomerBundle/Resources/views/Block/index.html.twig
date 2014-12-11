@@ -1,0 +1,11 @@
+{% for product in products %}
+	<a href="{{ path('dream_store_customer_show', {'id' : product.id}) }}">
+		<div class="product">
+		    <span class="product-name">{{ product.name }}</span><br>
+		    <span class="product-image"><img style="width: 150px; height: 150px;" src="{{ asset("DS/" ~ product.imageName) }}" alt="{{ product.imageName }}"></span><br>
+		    <span class="product-description">Description : {{ product.description }}</span><br>
+		    <span class="product-price">Prix : {{ product.price }}</span><br>
+		    <span class="product-stock">Stock : {{ product.stock }}</span>
+	    </div>
+    </a>
+{% endfor %}

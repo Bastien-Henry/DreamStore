@@ -2,15 +2,7 @@
 {%block body%}
 Panier !
     <table class="table table-hover">
-        <thead>
-        <tr>
-            <td><strong>Produit</strong></td>
-            <td><strong>Quantitée</strong></td>
-            <td><strong>Prix</strong></td>
-            <td><strong>Date</strong></td>
-            <td><strong>Date</strong></td>
-        </tr>
-        </thead>
+        {{ render_esi(controller('DreamStoreCustomerBundle:Block:cart')) }}
         <tbody>
         {% for cart in carts %}
             <tr>
