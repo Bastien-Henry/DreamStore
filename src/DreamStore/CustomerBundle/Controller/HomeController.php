@@ -35,8 +35,13 @@ class HomeController extends Controller
     {
         $username = $this->get('security.context')->getToken()->getUser()->getUsername();
         $carts = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'panier'));
+        $finalPrice = 0;
+        foreach($carts as $cart)
+        {
+            $finalPrice += $cart->getPrice();
+        }
         $data["carts"] = $carts;
-        $data["finalPrice"] = $carts;
+        $data["finalPrice"] = $finalPrice;
 
         return $this->render('DreamStoreCustomerBundle:Home:cart.html.twig', $data);
     }

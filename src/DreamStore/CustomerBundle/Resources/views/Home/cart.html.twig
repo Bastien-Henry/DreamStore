@@ -24,5 +24,8 @@ Panier !
         <tbody>
     </table>
 
-    <a href="{{path('dream_store_customer_payment_cart')}}" class="btn btn-info">Payer maintenant !</a>
+    {% if carts|length > 0 %}
+        Prix total : {{ finalPrice|number_format(2, ',', ' ') }} €<br>
+        <a href="{{path('dream_store_customer_payment_cart')}}" class="btn btn-info">Payer maintenant !</a>
+    {% endif %}
 {%endblock%}
