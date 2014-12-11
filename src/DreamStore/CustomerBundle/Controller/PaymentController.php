@@ -26,7 +26,7 @@ class PaymentController extends Controller
             $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
             $stock = $product->getStock();
 
-            if($stock - $table['quantite'] < 0 || is_int($table['quantite']) == false || $table['quantite'] <= 0)
+            if($stock - $table['quantite'] < 0 || is_int(intval($table['quantite'])) == false || $table['quantite'] <= 0)
             {
                 $form = $this->createForm("dreamstore_customerbundle_paymenttype");
 
@@ -78,8 +78,8 @@ class PaymentController extends Controller
                 "SIGNATURE" => $this->signature,
                 "VERSION" => 78,
                 "AMT" => $table['quantite'],
-                "returnUrl" => "http://localhost/DreamStore/web/app_dev.php/payment/return",
-                "cancelUrl" => "http://localhost/DreamStore/web/app_dev.php/show/".$id
+                "returnUrl" => "http://dreamstore.loc/payment/return",
+                "cancelUrl" => "http://dreamstore.loc/show/".$id
             );
 
             $post_var['L_PAYMENTREQUEST_0_NAME0']=$product->getName();
@@ -119,8 +119,8 @@ class PaymentController extends Controller
                 "SIGNATURE" => $this->signature,
                 "VERSION" => 78,
                 "AMT" => $quantity,
-                "returnUrl" => "http://localhost/DreamStore/web/app_dev.php/payment/return",
-                "cancelUrl" => "http://localhost/DreamStore/web/app_dev.php/show/".$id
+                "returnUrl" => "http://dreamstore.loc/payment/return",
+                "cancelUrl" => "http://dreamstore.loc/show/".$id
             );
             //first item
             $post_var['L_PAYMENTREQUEST_0_NAME0']=$carts[0]->getProduct()->getName();
