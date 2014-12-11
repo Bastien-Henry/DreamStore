@@ -5,7 +5,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.3.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/UPGRADE-2.4.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamStore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +59,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="755" selection-end="755" vertical-scroll-proportion="0.38793105" vertical-offset="0" max-vertical-offset="928">
+            <state line="22" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.42672414" vertical-offset="0" max-vertical-offset="928">
               <folding />
             </state>
           </provider>
@@ -766,7 +765,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="755" selection-end="755" vertical-scroll-proportion="0.38793105" vertical-offset="0" max-vertical-offset="928">
+        <state line="22" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.42672414" vertical-offset="0" max-vertical-offset="928">
           <folding />
         </state>
       </provider>
