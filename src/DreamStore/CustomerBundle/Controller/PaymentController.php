@@ -40,8 +40,6 @@ class PaymentController extends Controller
                 return $this->render('DreamStoreCustomerBundle:Home:product.html.twig', $data); 
             }
         }
-        
-
 
         if($table['place'] == "cart")
         {
@@ -323,13 +321,18 @@ class PaymentController extends Controller
 
     private function editStockAction($product, $quantity)
     {
-        $stock = $product->getStock();
-        $product->setStock($stock - $quantity);
-
+        $editStock = $this->editStock($product, $quantity);
         $em = $this->getDoctrine()->getManager();
-        $em->persist($product);
+        $em->persist($editStock);
         $em->flush();
         return;
+    }
+
+    public function editStock($product, $quantity)
+    {
+        $stock = $product->getStock();
+        $product->setStock($stock - $quantity);
+        return $product;
     }
 
     private function historicalAction($product, $quantity, $token, $status)
@@ -337,6 +340,14 @@ class PaymentController extends Controller
         $usr = $this->get('security.context')->getToken()->getUser();
         $userName = $usr->getUsername();
 
+        $historical = $this->historical($product, $quantity, $userName, $token, $status);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($historical);
+        $em->flush();
+    }
+
+    public function historical($product, $quantity, $userName, $token, $status)
+    {
         $historic = new Historical;
         $historic->setProduct($product);
         $historic->setQuantity($quantity);
@@ -345,10 +356,7 @@ class PaymentController extends Controller
         $historic->setStatus($status);
         $historic->setPrice($quantity*$product->getPrice());
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($historic);
-        $em->flush();
-        return;
+        return $historic;
     }
 
     public function getPaypalRedirectUrl($token)

@@ -57,7 +57,12 @@ class HomeController extends Controller
                 $table = $this->getRequest()->request->get('dreamstore_sellerbundle_stocktype');
                 $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
                 $productStock = $product->getStock();
-                $this->addNewStock($product, $table);
+                if($productStock-$table['stock'] >= 0)
+                {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($this->addNewStock($product, $table));
+                    $em->flush();
+                }
                 return $this->redirect($this->generateUrl('dream_store_seller_homepage'));
             }
         }
@@ -77,8 +82,7 @@ class HomeController extends Controller
         else
             $product->setStock($productStock-$table['stock']);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($product);
-        $em->flush();
+        return $product;
+
     }
 }

@@ -69,7 +69,6 @@ class HomeController extends Controller
         $data['route'] = "dream_store_customer_payment_index";
         $data['id'] = $id;
 
-
     	return $this->render('DreamStoreCustomerBundle:Home:product.html.twig', $data);
     }
 }
