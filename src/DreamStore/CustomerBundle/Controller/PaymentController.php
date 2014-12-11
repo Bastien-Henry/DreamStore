@@ -44,8 +44,8 @@ class PaymentController extends Controller
 
         if($table['place'] == "cart")
         {
-            $userName = $this->get('security.context')->getToken()->getUser()->getUsername();
-            $cart = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneBy(array("user" => $userName, "status" => "panier", "product" => $product));
+            $username = $this->checkUser();
+            $cart = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneBy(array("user" => $username, "status" => "panier", "product" => $product));
             if($cart)
             {
                 $totalQuantity = $cart->getQuantity()+$table['quantite'];
@@ -97,7 +97,7 @@ class PaymentController extends Controller
         }
         else
         {
-            $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+            $username = $this->checkUser();
 
             $carts = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'panier'));
 
@@ -339,20 +339,20 @@ class PaymentController extends Controller
     private function historicalAction($product, $quantity, $token, $status)
     {
         $usr = $this->get('security.context')->getToken()->getUser();
-        $userName = $usr->getUsername();
+        $username = $this->checkUser();
 
-        $historical = $this->historical($product, $quantity, $userName, $token, $status);
+        $historical = $this->historical($product, $quantity, $username, $token, $status);
         $em = $this->getDoctrine()->getManager();
         $em->persist($historical);
         $em->flush();
     }
 
-    public function historical($product, $quantity, $userName, $token, $status)
+    public function historical($product, $quantity, $username, $token, $status)
     {
         $historic = new Historical;
         $historic->setProduct($product);
         $historic->setQuantity($quantity);
-        $historic->setUser($userName);
+        $historic->setUser($username);
         $historic->setToken($token);
         $historic->setStatus($status);
         $historic->setPrice($quantity*$product->getPrice());
@@ -363,5 +363,22 @@ class PaymentController extends Controller
     public function getPaypalRedirectUrl($token)
     {
         return "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=".$token;
+    }
+
+    public function checkUser()
+    {
+        if($this->get('security.context')->getToken()->getResourceOwnerName() == 'facebook')
+        {
+            $token = $this->get('security.context')->getToken()->getAccessToken();
+            $json = file_get_contents('https://graph.facebook.com/me?access_token='.$token);
+            $decode = json_decode($json);
+            $username = $decode->id;
+        }
+        else
+        {
+            $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        }
+
+        return $username;
     }
 }
