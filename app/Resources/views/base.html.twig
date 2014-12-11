@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Build your dream !{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
@@ -38,6 +38,9 @@
           {% if app.user.username is defined %}
               <li><a href="{{ path('dream_store_customer_historical')}}">Historique</a></li>
               <li><a href="{{ path('dream_store_customer_cart')}}">Panier</a></li>
+              {% if app.user.username == 'Guillaume Flmbrd' or app.user.username == 'Bastien Henry' %}
+                <li><a href="{{ path('dream_store_seller_homepage')}}">Admin</a></li>
+              {% endif %}
               <li><a href="{{ path('dream_store_customer_deconnection')}}">Deconnexion</a></li>
           {% else %}
               <li><a href="{{ path('hwi_oauth_connect')}}">Connexion</a></li>
