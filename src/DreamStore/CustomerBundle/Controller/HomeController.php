@@ -11,14 +11,6 @@ class HomeController extends Controller
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
         $data["products"] = $products;
 
-        //id facebook et ressource owner
-        $token = $this->get('security.context')->getToken()->getAccessToken();
-        var_dump($this->get('security.context')->getToken()->getResourceOwnerName());
-        $json = file_get_contents('https://graph.facebook.com/me?access_token='.$token);
-        $decode = json_decode($json);
-        $id = $decode->id;
-        var_dump($id);
-
         $response = $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
         $response->setSharedMaxAge(600);
 
@@ -31,9 +23,26 @@ class HomeController extends Controller
         return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
     }
 
+    public function checkUser()
+    {
+        if($this->get('security.context')->getToken()->getResourceOwnerName() == 'facebook')
+        {
+            $token = $this->get('security.context')->getToken()->getAccessToken();
+            $json = file_get_contents('https://graph.facebook.com/me?access_token='.$token);
+            $decode = json_decode($json);
+            $username = $decode->id;
+        }
+        else
+        {
+            $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        }
+
+        return $username;
+    }
+
     public function historicalAction()
     {
-        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $username = $this->checkUser();
         $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array("user" => $username, 'status' => 'paye'), array("date" => "desc"));
 
         $data["historicals"] = $historicals;
@@ -43,7 +52,7 @@ class HomeController extends Controller
 
     public function cartAction()
     {
-        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $username = $this->checkUser();
         $carts = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array('user' => $username, 'status' => 'panier'));
         $finalPrice = 0;
         foreach($carts as $cart)
@@ -59,7 +68,7 @@ class HomeController extends Controller
     public function cartDeleteAction($id)
     {
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
-        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $username = $this->checkUser();
         $cart = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findOneBy(array('user' => $username, 'status' => 'panier', 'product' => $product));
 
         $em = $this->getDoctrine()->getManager();
