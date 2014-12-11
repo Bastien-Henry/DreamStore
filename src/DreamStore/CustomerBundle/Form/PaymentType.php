@@ -18,11 +18,11 @@ class PaymentType extends AbstractType
             ))
             ->add('place', 'choice', array(
                 "choices" => array(
-                    "cart" => "A jouter au panier",
+                    "cart" => "Ajouter au panier",
                     "buy" => "Achat immediat"
                 ),
                 "multiple" => false,
-                "label"     => "place",
+                "label"     => "Action :",
                 "required"   => true
             ));
     }

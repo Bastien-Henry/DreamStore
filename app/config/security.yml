@@ -20,7 +20,6 @@ security:
             oauth:
                 resource_owners:
                     facebook:      /login_facebook
-                    google:        /login/check-google
                     my_github:     /login/check-github
                     twitter:       /login/check-twitter
                 login_path:        /login
