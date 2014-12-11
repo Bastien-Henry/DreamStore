@@ -8,6 +8,7 @@ Panier !
             <td><strong>Quantitée</strong></td>
             <td><strong>Prix</strong></td>
             <td><strong>Date</strong></td>
+            <td><strong>Date</strong></td>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@ Panier !
                 <td>{{ cart.quantity }}</td>
                 <td>{{ cart.price }}</td>
                 <td>{{ cart.date.date }}</td>
+                <td><a href={{ path("dream_store_customer_cart_delete", {'id' : cart.product.id}) }}>Supprimer</a></td>
             </tr>
         {% endfor %}
         <tbody>
