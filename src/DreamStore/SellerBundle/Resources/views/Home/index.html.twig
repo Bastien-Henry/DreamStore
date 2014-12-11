@@ -2,15 +2,7 @@
 {%block body%}
 Produits !
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <td><strong>Image</strong></td>
-        <td><strong>Nom</strong></td>
-        <td><strong>Description</strong></td>
-        <td><strong>prix</strong></td>
-        <td><strong>Stock</strong></td>
-        <td><strong>Actions</strong></td>
-    </tr>
+    {{ render_esi(controller('DreamStoreCustomerBundle:Block:sellerProduct')) }}
     </thead>
     <tbody>
         {% for product in products %}
@@ -30,15 +22,7 @@ Produits !
 </table>
 Historique !
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <td><strong>Utilisateur</strong></td>
-        <td><strong>Produit</strong></td>
-        <td><strong>quantitée</strong></td>
-        <td><strong>prix</strong></td>
-        <td><strong>date</strong></td>
-    </tr>
-    </thead>
+    {{ render_esi(controller('DreamStoreCustomerBundle:Block:sellerHistorical')) }}
     <tbody>
     {% for historical in historicals %}
         <tr>

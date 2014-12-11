@@ -11,7 +11,10 @@ class HomeController extends Controller
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
         $data["products"] = $products;
 
-        return $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
+        $response = $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
+        $response->setSharedMaxAge(600);
+
+        return $response;
     }
 
     public function deconnectionAction()
