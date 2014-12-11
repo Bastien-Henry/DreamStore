@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
-        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findAll();
+        $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array(), array("date" => "desc"));
         $data["products"] = $products;
         $data["historicals"] = $historicals;
 
@@ -57,7 +57,7 @@ class HomeController extends Controller
                 $table = $this->getRequest()->request->get('dreamstore_sellerbundle_stocktype');
                 $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
                 $productStock = $product->getStock();
-                $this->feedStock($product, $productStock, $table);
+                $this->addNewStock($product, $table);
                 return $this->redirect($this->generateUrl('dream_store_seller_homepage'));
             }
         }
@@ -68,15 +68,16 @@ class HomeController extends Controller
         return $this->render('DreamStoreSellerBundle:Home:stock.html.twig', $data);
     }
 
-    public function addStock($product, $productStock, $table)
+    public function addNewStock($product, $table)
     {
-        $em = $this->getDoctrine()->getManager();
+        $productStock = $product->getStock();
 
         if($table['operation'] == 'add')
             $product->setStock($productStock+$table['stock']);
         else
             $product->setStock($productStock-$table['stock']);
 
+        $em = $this->getDoctrine()->getManager();
         $em->persist($product);
         $em->flush();
     }
