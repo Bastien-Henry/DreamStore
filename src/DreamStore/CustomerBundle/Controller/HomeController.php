@@ -11,13 +11,13 @@ class HomeController extends Controller
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
         $data["products"] = $products;
 
-        //id facebook et ressource owner
-        $token = $this->get('security.context')->getToken()->getAccessToken();
-        var_dump($this->get('security.context')->getToken()->getResourceOwnerName());
-        $json = file_get_contents('https://graph.facebook.com/me?access_token='.$token);
-        $decode = json_decode($json);
-        $id = $decode->id;
-        var_dump($id);
+        // //id facebook et ressource owner
+        // $token = $this->get('security.context')->getToken()->getAccessToken();
+        // var_dump($this->get('security.context')->getToken()->getResourceOwnerName());
+        // $json = file_get_contents('https://graph.facebook.com/me?access_token='.$token);
+        // $decode = json_decode($json);
+        // $id = $decode->id;
+        // var_dump($id);
 
         $response = $this->render('DreamStoreCustomerBundle:Home:index.html.twig', $data);
         $response->setSharedMaxAge(600);

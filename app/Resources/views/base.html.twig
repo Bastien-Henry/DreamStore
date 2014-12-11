@@ -37,7 +37,7 @@
         <li><a href="{{path('dream_store_customer_homepage')}}">Home</a></li>
           {% if app.user.username is defined %}
               <li><a href="{{ path('dream_store_customer_cart')}}">Panier</a></li>
-              {% if app.user.username == 'Guillaume Flmbrd' or app.user.username == 'Bastien Henry' %}
+              {% if app.user.username == 'GuillaumeFlambard' or app.user.username == 'stat1k' %}
                 <li><a href="{{ path('dream_store_seller_homepage')}}">Admin</a></li>
               {% endif %}
               <li><a href="{{ path('dream_store_customer_historical')}}">Historique</a></li>

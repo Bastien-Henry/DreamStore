@@ -26,9 +26,10 @@ class PaymentController extends Controller
             $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
             $stock = $product->getStock();
 
-            if($stock - $table['quantite'] < 0)
+            if($stock - $table['quantite'] < 0 || is_int($table['quantite']) == false || $table['quantite'] <= 0)
             {
                 $form = $this->createForm("dreamstore_customerbundle_paymenttype");
+
 
                 $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
                 $data["product"] = $product;
@@ -36,7 +37,7 @@ class PaymentController extends Controller
                 $data['form'] = $form->createView();
                 $data['route'] = "dream_store_customer_payment_index";
                 $data['id'] = $id;
-                $data['error'] = "Il n'y a pas assez de stock !";
+                $data['error'] = "Erreur lors de la saisie du stock !";
                 return $this->render('DreamStoreCustomerBundle:Home:product.html.twig', $data); 
             }
         }
