@@ -8,19 +8,7 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
-        $ressource = $this->get('security.context')->getToken()->GetResourceOwnerName();
-
-
-        if ($username !== 'stat1k' && $username !== 'GuillaumeFlambard') 
-        {
-            if ($ressource !== "my_github") 
-            {
-                return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
-            }
-
-            return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
-        }
+        $this->checkAdmin();
 
         $products = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findAll();
         $historicals = $this->getDoctrine()->getRepository('DreamStoreCustomerBundle:Historical')->findBy(array(), array("date" => "desc"));
@@ -32,19 +20,7 @@ class HomeController extends Controller
 
     public function editPriceAction($id)
     {
-        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
-        $ressource = $this->get('security.context')->getToken()->GetResourceOwnerName();
-
-
-        if ($username !== 'stat1k' && $username !== 'GuillaumeFlambard') 
-        {
-            if ($ressource !== "my_github") 
-            {
-                return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
-            }
-
-            return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
-        }
+        $this->checkAdmin();
 
         $product = $this->getDoctrine()->getRepository('DreamStoreSellerBundle:Product')->findOneById($id);
         $request = $this->get("request");
@@ -126,5 +102,15 @@ class HomeController extends Controller
 
         return $product;
 
+    }
+
+    private function checkAdmin()
+    {
+        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $ressource = $this->get('security.context')->getToken()->GetResourceOwnerName();
+        if (($username !== 'stat1k' && $username !== 'GuillaumeFlambard') || $ressource !== "my_github")
+            return $this->redirect($this->generateUrl('dream_store_customer_homepage'));
+
+        return;
     }
 }
