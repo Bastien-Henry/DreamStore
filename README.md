@@ -20,3 +20,11 @@ DreamStore/vendor/hwi/oauth-bundle/HWI/Bundle/Resources/views/Connect/login.html
 </code>
 </pre>
 
+
+Pour pouvoir tester la zone vendeur, vous devez vous connecter avec votre compte GitHub (smwhr).
+
+Pour le dump de la DB, je vous l'ai envoyé via email. Ou alors vous pouvez le télécharger ici :
+<pre><code>http://bit.ly/1wHsYYA</code></pre>
+
+Pour pouvoir utiliser la connection OAuth des différents providers ainsi que Paypal, vous devez utiliser <code>http://dreamstore.loc/</code> comme URL.
+
