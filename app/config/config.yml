@@ -1,0 +1,97 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    esi: { enabled: true }
+    #translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+hwi_oauth:
+    http_client:
+        verify_peer: false
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secured_area
+    resource_owners:
+        facebook:
+            type: facebook
+            client_id: "685884718194406"
+            client_secret: "8644900f775f30c36fbc9bc9a2738fc3"
+            scope: 'email'
+            infos_url:     "https://graph.facebook.com/me?fields=id,name,email,picture.type(square)"
+            paths:
+                email:          email
+                profilepicture: picture.data.url
+        google:
+            type:                google
+            client_id:           "176363411895-qb9l6d5fu4agi4si9s0qqfma9mqrlet2.apps.googleusercontent.com"
+            client_secret:       "FdaOoEWPTHx8fFe8x3uWYAf7"
+            scope:               "email profile"
+        my_github:
+            type:                github
+            client_id:           "12fc73a988809b631a73"
+            client_secret:       "d61a617f5d480fd66e712c2ad2b20a5420621d94"
+        twitter:
+            type:                twitter
+            client_id:           "iFVgQ9MTdEvCiowDBsEw5XUIU"
+            client_secret:       "lZyTNxI0sACZ8Ch66fLZeY87sLNlW1lWwmwLUWhTEKiqu77hbC"
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider
